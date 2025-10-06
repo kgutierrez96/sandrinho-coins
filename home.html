@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SandraoCoins — Coins FC</title>
+    <meta name="description"
+        content="Compre suas coins de FC com entrega imediata e suporte via WhatsApp. Seguro, rápido e simples." />
+
+    <!-- Fonte e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Favicons: coloque os arquivos em assets/ (ex.: assets/favicon-32.png, favicon-16.png, apple-touch-icon.png) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/LdQC0NSW/Whats-App-Image-2025-10-05-at-22-18-53.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/LdQC0NSW/Whats-App-Image-2025-10-05-at-22-18-53.png">
+    <link rel="shortcut icon" href="https://i.ibb.co/LdQC0NSW/Whats-App-Image-2025-10-05-at-22-18-53.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/LdQC0NSW/Whats-App-Image-2025-10-05-at-22-18-53.png">
+    <meta name="theme-color" content="#141414">
+
+    <style>
+        :root {
+            --bg: #141414;
+            /* fundo escuro */
+            --card: #1e1e1e;
+            /* cartões */
+            --muted: #2a2a2a;
+            /* bordas / preenchimentos */
+            --text: #f2f2f2;
+            /* texto principal */
+            --sub: #b9b9b9;
+            /* texto secundário */
+            --brand: #2da8ff;
+            /* amarelo destaque */
+            --brand-900: #ffffff;
+            --success: #2ecc71;
+            /* verde */
+            --danger: #ef4444;
+            --radius: 18px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, .35);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(140%) blur(6px);
+            background: rgba(20, 20, 20, .75);
+            border-bottom: 1px solid #242424
+        }
+
+        .nav-wrap {
+            max-width: 1160px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 12px 16px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            letter-spacing: .4px
+        }
+
+        .brand-badge {
+            background: var(--brand);
+            color: #111;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-weight: 800
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .pill {
+            background: #242424;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: #e8e8e8;
+            border: 1px solid #2e2e2e
+        }
+
+        .pill i {
+            margin-right: 8px;
+            color: var(--brand)
+        }
+
+        .cart {
+            position: relative
+        }
+
+        .cart::after {
+            content: "";
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 8px;
+            height: 8px;
+            background: var(--brand);
+            border-radius: 999px
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 22px 16px 80px
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr;
+            gap: 16px;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #1f1f1f, #0f0f0f 60%);
+            border: 1px solid #2c2c2c;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden
+        }
+
+        .banner-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center
+        }
+
+        .banner-left {
+            padding: 28px
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #222;
+            border: 1px solid #2d2d2d;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #e8e8e8
+        }
+
+        .kicker img {
+            height: 18px
+        }
+
+        .title {
+            font-size: 34px;
+            line-height: 1.05;
+            margin: 14px 0;
+            font-weight: 800
+        }
+
+        .title .hi {
+            color: var(--brand)
+        }
+
+        .subtitle {
+            color: #e6e6e6;
+            opacity: .9;
+            font-weight: 500
+        }
+
+        .badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 14px
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1c1c1c;
+            border: 1px solid #2a2a2a;
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: #e6e6e6;
+            font-weight: 600
+        }
+
+        .badge i {
+            color: var(--brand)
+        }
+
+        .page-banner {
+            max-width: 1160px;
+            margin: 18px auto;
+            border-radius: 14px;
+            overflow: hidden;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow);
+            border: 1px solid #2a2a2a
+        }
+
+        .page-banner .visually-hidden {
+            position: absolute !important;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+            clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap
+        }
+
+        @media (max-width: 1160px) {
+            .page-banner {
+                height: 200px
+            }
+        }
+
+        /* Steps */
+        .steps {
+            margin-top: 28px
+        }
+
+        .step-card {
+            background: var(--card);
+            border: 1px solid #2a2a2a;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow)
+        }
+
+        .step-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            border-bottom: 1px dashed #333
+        }
+
+        .step-head .left {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .step-number {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: #242424;
+            border: 1px solid #303030;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .muted {
+            color: var(--sub)
+        }
+
+        .platforms {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            padding: 16px
+        }
+
+        .platform {
+            background: #212121;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            padding: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: transform .1s ease, border-color .2s ease;
+            color: var(--text);
+        }
+
+        .platform:hover {
+            transform: translateY(-2px)
+        }
+
+        .platform.active {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(4, 1, 182, 0.12) inset
+        }
+
+        .platform i {
+            font-size: 22px
+        }
+
+        .ri-playstation-line,
+        .ri-playstation-fill {
+            color: hsl(234, 100%, 50%);
+        }
+
+        .ri-xbox-line,
+        .ri-xbox-fill {
+            color: #69ec69;
+        }
+
+        .ri-computer-line,
+        .ri-computer-fill {
+            color: #ff7b00;
+        }
+
+        /* Packs */
+        .packs {
+            padding: 16px;
+            display: grid;
+            gap: 12px
+        }
+
+        .pack {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 12px;
+            align-items: center;
+            background: #1b1b1b;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            padding: 14px 14px
+        }
+
+        .pack .left {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: #242424;
+            border: 1px solid #303030
+        }
+
+        .pack .title {
+            font-size: 18px;
+            margin: 0
+        }
+
+        .bonus {
+            font-weight: 700;
+            color: var(--brand);
+            font-size: 12px;
+            margin-left: 8px
+        }
+
+        .price {
+            font-weight: 800
+        }
+
+        .btn {
+            background: var(--brand);
+            color: #111;
+            border: 0;
+            font-weight: 800;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform .08s ease, background .2s
+        }
+
+        .btn:hover {
+            background: var(--brand-900);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Sticky actions */
+        .fab {
+            position: fixed;
+            right: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            bottom: 18px;
+            z-index: 40
+        }
+
+        .fab a {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow);
+            border: 0px solid rgba(255, 255, 255, .08)
+        }
+
+        .fab .whats {
+            background: #25D366;
+            color: #111
+        }
+
+        .fab .insta {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            color: #fff
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 32px;
+            color: #9d9d9d;
+            font-size: 14px;
+            display: flex;
+            justify-content: center
+        }
+
+        footer a {
+            color: #d1d1d1;
+            text-decoration: underline
+        }
+
+        /* Responsivo */
+        @media (max-width: 900px) {
+            .banner-inner {
+                grid-template-columns: 1fr
+            }
+
+            .banner-right {
+                height: 200px
+            }
+
+            .pack {
+                grid-template-columns: 1fr;
+                align-items: stretch
+            }
+
+            .price {
+                justify-self: flex-start
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div class="nav">
+        <div class="nav-wrap">
+            <div class="brand"><span class="brand-badge">SANDRÃO</span> COINS</div>
+            <div class="nav-links">
+                <a class="pill" href="#como-funciona"><i class="ri-question-line"></i>Como funciona?</a>
+                <a class="pill" href="#packs"><i class="ri-flashlight-line"></i>Entrega imediata</a>
+                <!--<a class="pill cart" href="#"><i class="ri-shopping-cart-2-line"></i>Carrinho</a>-->
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- HERO / BANNER -->
+        <section class="hero">
+            <div class="banner">
+                <div class="banner-inner">
+                    <div class="banner-left">
+                        <span class="kicker"><img
+                                src="https://i.ibb.co/LdQC0NSW/Whats-App-Image-2025-10-05-at-22-18-53.png" alt="EA" />
+                            FC26 • Coins Liberadas</span>
+                        <h1 class="title"><span class="hi">VENDAS DE COINS</span> FC 26!</h1>
+                        <p class="subtitle">Comece o FC 26 no nível pro-player. <b>Entrega imediata</b>, suporte humano
+                            e pagamento fácil no Pix.</p>
+                        <div class="badges">
+                            <div class="badge"><i class="ri-shield-check-fill"></i>Compra segura</div>
+                            <div class="badge"><i class="ri-time-fill"></i>Envio em minutos</div>
+                            <div class="badge"><i class="ri-bank-card-2-fill"></i>Aceitamos Pix</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <div class="page-banner"
+            style="background-image: url('https://i.ibb.co/YFH73hNb/Gemini-Generated-Image-582xtz582xtz582x.png');"
+            role="img" aria-label="Vendas de Coins FC26">
+            <span class="visually-hidden">Vendas de Coins FC26 — banner</span>
+        </div>
+
+        <!-- STEP 1: Plataforma -->
+        <section class="steps" id="comprar">
+            <div class="step-card">
+                <div class="step-head">
+                    <div class="left">
+                        <div class="step-number">01</div>
+                        <div>
+                            <div style="font-weight:800">ESCOLHA SUA PLATAFORMA</div>
+                            <div class="muted">Selecione onde você joga</div>
+                        </div>
+                    </div>
+                    <a class="pill" href="#como-funciona"><i class="ri-information-line"></i>Como funciona?</a>
+                </div>
+                <div class="platforms" id="platforms">
+                    <button class="platform active" data-plat="psn"><i class="ri-playstation-line"></i>PSN</button>
+                    <button class="platform" data-plat="xbox"><i class="ri-xbox-line"></i>XBOX</button>
+                    <button class="platform" data-plat="pc"><i class="ri-computer-line"></i>PC</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Quantidade -->
+            <div class="step-card" style="margin-top:16px" id="packs">
+                <div class="step-head">
+                    <div class="left">
+                        <div class="step-number">02</div>
+                        <div>
+                            <div style="font-weight:800">ESCOLHA A QUANTIDADE DE COINS <span
+                                    style="color:var(--brand)">FC 26</span></div>
+                            <div class="muted">Planos com bônus progressivo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="packs" id="pack-list"><!-- JS insere aqui --></div>
+            </div>
+        </section>
+
+        <!-- Como Funciona -->
+        <section id="como-funciona" style="margin-top:26px">
+            <div class="step-card">
+                <div class="step-head">
+                    <div class="left">
+                        <div class="step-number">?</div>
+                        <div>
+                            <div style="font-weight:800">COMO FUNCIONA</div>
+                            <div class="muted">Processo simples em 3 passos</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="padding:18px; display:grid; gap:12px">
+                    <div class="badge"><i class="ri-1-circle-fill"></i>Escolha plataforma e pacote desejado</div>
+                    <div class="badge"><i class="ri-2-circle-fill"></i>Nos chame no WhatsApp e realize o pagamento</div>
+                    <div class="badge"><i class="ri-3-circle-fill"></i>Receba as suas coins em Segurança (guia passo a passo)
+                    </div>
+                    <p class="muted">Observação: Nunca compartilhamos a sua senha. O método utilizado é seguro e
+                        validado.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> • Sandrão Coins •
+        </footer>
+    </main>
+
+    <!-- FABs -->
+    <div class="fab">
+        <a class="insta" href="https://www.instagram.com/sandrinhowalker_" target="_blank" aria-label="Instagram"><i
+                class="ri-instagram-line"></i></a>
+        <a class="whats" id="whats-global" href="#" target="_blank" aria-label="WhatsApp"><i
+                class="ri-whatsapp-line"></i></a>
+    </div>
+
+    <script>
+        const WHATS_NUMBER = '5511973108796';
+
+        const packsByPlatform = {
+            psn: [
+                { qty: "50K", bonus: "", price: 46 },
+                { qty: "100K", bonus: "+10K BÔNUS", price: 90 },
+                { qty: "200K", bonus: "+30K BÔNUS", price: 175 },
+                { qty: "300K", bonus: "+50K BÔNUS", price: 260 },
+                { qty: "400K", bonus: "+65K BÔNUS", price: 345 },
+                { qty: "500K", bonus: "+80K BÔNUS", price: 430 }
+            ],
+            xbox: [
+                { qty: "50K", bonus: "", price: 46 },
+                { qty: "100K", bonus: "+10K BÔNUS", price: 90 },
+                { qty: "200K", bonus: "+30K BÔNUS", price: 175 },
+                { qty: "300K", bonus: "+50K BÔNUS", price: 260 },
+                { qty: "400K", bonus: "+65K BÔNUS", price: 345 },
+                { qty: "500K", bonus: "+80K BÔNUS", price: 430 }
+            ],
+            pc: [
+                { qty: "50K", bonus: "", price: 61 },
+                { qty: "100K", bonus: "+10K BÔNUS", price: 117 },
+                { qty: "200K", bonus: "+20K BÔNUS", price: 229 },
+                { qty: "300K", bonus: "+30K BÔNUS", price: 341 },
+                { qty: "400K", bonus: "+40K BÔNUS", price: 341 },
+                { qty: "500K", bonus: "+50K BÔNUS", price: 450 }
+            ]
+        };
+
+        const platformIcons = { psn: 'ri-playstation-line', xbox: 'ri-xbox-line', pc: 'ri-computer-line' };
+
+        const platformsEl = document.getElementById('platforms');
+        const packList = document.getElementById('pack-list');
+        const whatsGlobal = document.getElementById('whats-global');
+
+        function waLink(text) {
+            const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
+            return url;
+        }
+
+        function setGlobalWA() {
+            whatsGlobal.href = waLink('Olá! Vim pelo site e tenho interesse em saber mais sobre o serviço de coins. Pode me ajudar?');
+        }
+
+        function renderPacks(platform) {
+            packList.innerHTML = '';
+            (packsByPlatform[platform] || []).forEach(p => {
+                const row = document.createElement('div');
+                row.className = 'pack';
+
+                const left = document.createElement('div');
+                left.className = 'left';
+
+                left.innerHTML = `
+          <div class="icon"><i class="${platformIcons[platform]}"></i></div>
+          <div>
+            <h3 class="title">${p.qty} <span class="bonus">${p.bonus}</span></h3>
+            <div class="muted" style="font-size:12px">Plataforma: ${platform.toUpperCase()}</div>
+          </div>`;
+
+                const price = document.createElement('div');
+                price.className = 'price';
+                price.textContent = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(p.price);
+
+                const btn = document.createElement('button');
+                btn.className = 'btn';
+                btn.textContent = 'Comprar';
+                btn.onclick = () => {
+                    const msg = `Olá! Tenho interesse no pacote de ${p.qty} (${p.bonus}) para ${platform.toUpperCase()} — valor ${price.textContent}.`;
+                    window.open(waLink(msg), '_blank');
+                };
+
+                row.appendChild(left); row.appendChild(price); row.appendChild(btn);
+                packList.appendChild(row);
+            });
+        }
+
+        // Plataforma switching
+        platformsEl.querySelectorAll('.platform').forEach(btn => {
+            btn.addEventListener('click', () => {
+                platformsEl.querySelectorAll('.platform').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderPacks(btn.dataset.plat);
+            })
+        });
+
+        // init
+        renderPacks('psn');
+        setGlobalWA();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
